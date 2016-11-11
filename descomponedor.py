@@ -1,3 +1,4 @@
+#Python 3.4/5 - srBill1990
 def generar_nprimo():#Generador de numeros primos
     generar_nprimo.numero_+=1
     for i in range(2,generar_nprimo.numero_):
