@@ -36,6 +36,7 @@ int main( void ) {
 	
 	printf("\n_____________________________________________________________\n\n");
 	printf("\n\n\n");
+	getchar();
 	return 0;
 }
 int rebajar(int n,int veces){
@@ -142,7 +143,7 @@ int dnumero(int *numero){
 			}
 		}
 	}
-	getchar();
+	
 	return 0;
 }
 void print(char *s){
