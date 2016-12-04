@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 void print(char *s);
 int dnumero(int *);
 int rebajar(int,int);
