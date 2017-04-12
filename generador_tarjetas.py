@@ -1,5 +1,5 @@
 #!/usr/bin/env Python 3.6
-#Codigo by sRBill96 para netixzen.blogspot.com.ar
+#Codigo by sRBill90 para netixzen.blogspot.com.ar
 import sys
 import math
 import json
