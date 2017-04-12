@@ -1,5 +1,5 @@
 #!/usr/bin/env Python 3.6
-#Codigo by sRBill96 para netixzen.blogspot.com.ar
+#Codigo by sRBill96 para netixzen.blogspot.com.ar - 12/04/2017
 import sys
 import math
 import random
@@ -242,7 +242,6 @@ class Generar_tarjeta():
 					tipo = self.lista_tipos_de_tarjetas[p_tarj]
 		return tipo
 		
-
 if __name__ == "__main__":
 	argv = sys.argv
 	if(len(argv) > 2):
@@ -250,12 +249,6 @@ if __name__ == "__main__":
 		num = Generar_tarjeta(bin_generar,int(argv[2]),True)
 	else:
 		print("USO:  BIN_BASE CANTIDAD")
-else:
-	bin_muestra = "5124386441958736"
 
-	num = Generar_tarjeta(bin_muestra,5,True)
-
-
-
-
-
+#bin_muestra = "5124386441958736"
+#num = Generar_tarjeta(bin_muestra,5,True)
