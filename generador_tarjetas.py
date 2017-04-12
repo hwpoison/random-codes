@@ -2,6 +2,7 @@
 #Codigo by sRBill96 para netixzen.blogspot.com.ar
 import sys
 import math
+import json
 import random
 import datetime
 
@@ -149,6 +150,9 @@ class Generar_tarjeta():
 			"35xx xxxx xxxx xxxx":"JCB (Japanese Credit Bureau)"
 		}
 		return tipos_tarjetas_ 
+	
+	def json(self):
+		return json.dumps(self.dic_tarjetas)
 
 	def crear_tarjeta(self):
 		tarjeta = {}
@@ -259,6 +263,7 @@ if __name__ == "__main__":
 	else:
 		print("USO:  BIN_BASE CANTIDAD")
 
+
 #bin_muestra = "5124386xxxxxxx36"
 #imprimir resultado en consola
 #num = Generar_tarjeta(bin_muestra,1,True)
@@ -268,6 +273,9 @@ if __name__ == "__main__":
 
 #obtener diccionario
 #diccionario = num.dic_tarjetas
+
+#obtener un json para parsear
+#json = num.json()
 
 #obtener lista
 #lista = num.lista_tarjetas
