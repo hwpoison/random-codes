@@ -1,5 +1,5 @@
 #!/usr/bin/env Python 3.6
-#Codigo by sRBill96 para netixzen.blogspot.com.ar - 12/04/2017
+#Codigo by sRBill96 para netixzen.blogspot.com.ar
 import sys
 import math
 import random
@@ -15,10 +15,18 @@ class Generar_tarjeta():
 			self.RANGO_GEN = 1000
 			self.CANTIDAD_TARJETAS = cantidad
 			self.lista_tarjetas = []
+			self.dic_tarjetas = {}
 			self.lista_tipos_de_tarjetas = self.lista_tipos_tarjetas()
 			if self.CANTIDAD_TARJETAS >= 1:
 				for i in range(0, self.CANTIDAD_TARJETAS):
-					self.lista_tarjetas.append(self.crear_tarjeta()["datos_completos"])
+					tarj_creada = self.crear_tarjeta()
+					self.lista_tarjetas.append(["datos_completos"])
+					self.dic_tarjetas[i] = {
+							"numero":tarj_creada["numero_tarjeta"],
+							"codigo_seg":tarj_creada["codigo_seg"],
+							"tipo_tarjeta":tarj_creada["tipo_tarjeta"],
+							"fecha":tarj_creada["venc"]
+							}
 			else:
 					self.crear_tarjeta()
 			if solo_impresion:#solo impresion
@@ -251,4 +259,6 @@ if __name__ == "__main__":
 		print("USO:  BIN_BASE CANTIDAD")
 
 #bin_muestra = "5124386xxxxxxx36"
-#num = Generar_tarjeta(bin_muestra,5,True)
+#num = Generar_tarjeta(bin_muestra,1)
+#diccionario = num.dic_tarjetas
+#lista = num.lista_tarjetas
