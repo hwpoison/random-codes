@@ -250,5 +250,5 @@ if __name__ == "__main__":
 	else:
 		print("USO:  BIN_BASE CANTIDAD")
 
-#bin_muestra = "5124386441958736"
+#bin_muestra = "5124386xxxxxxx36"
 #num = Generar_tarjeta(bin_muestra,5,True)
