@@ -20,13 +20,14 @@ class Generar_tarjeta():
 			if self.CANTIDAD_TARJETAS >= 1:
 				for i in range(0, self.CANTIDAD_TARJETAS):
 					tarj_creada = self.crear_tarjeta()
-					self.lista_tarjetas.append(["datos_completos"])
+					self.lista_tarjetas.append(tarj_creada["datos_completos"])
 					self.dic_tarjetas[i] = {
 							"numero":tarj_creada["numero_tarjeta"],
 							"codigo_seg":tarj_creada["codigo_seg"],
 							"tipo_tarjeta":tarj_creada["tipo_tarjeta"],
-							"fecha":tarj_creada["venc"]
-							}
+							"fecha":tarj_creada["venc"],
+							"dato_completo":tarj_creada["datos_completos"]
+					}
 			else:
 					self.crear_tarjeta()
 			if solo_impresion:#solo impresion
@@ -259,6 +260,14 @@ if __name__ == "__main__":
 		print("USO:  BIN_BASE CANTIDAD")
 
 #bin_muestra = "5124386xxxxxxx36"
+#imprimir resultado en consola
+#num = Generar_tarjeta(bin_muestra,1,True)
+
+#omitir impresion
 #num = Generar_tarjeta(bin_muestra,1)
+
+#obtener diccionario
 #diccionario = num.dic_tarjetas
+
+#obtener lista
 #lista = num.lista_tarjetas
