@@ -1,5 +1,5 @@
 #!/usr/bin/env Python 3.6
-#Codigo by sRBill90 para netixzen.blogspot.com.ar
+#Codigo by sRBill96 para netixzen.blogspot.com.ar
 import sys
 import math
 import json
@@ -12,7 +12,7 @@ class Generar_tarjeta():
 		if(len(self.BIN) > 16 or len(self.BIN) < 16):
 			print("Por favor revisa la longitud del BIN.")
 		else:
-			print("Generando..")
+			print("Generando numero de tarjeta..")
 			self.RANGO_GEN = 1000
 			self.CANTIDAD_TARJETAS = cantidad
 			self.lista_tarjetas = []
@@ -264,18 +264,25 @@ if __name__ == "__main__":
 		print("USO:  BIN_BASE CANTIDAD")
 
 
-#bin_muestra = "5124386xxxxxxx36"
+bin_muestra = "5124386xxxxxxx36"
 #imprimir resultado en consola
-#num = Generar_tarjeta(bin_muestra,1,True)
+#num = Generar_tarjeta(bin_muestra,6,True)
 
 #omitir impresion
 #num = Generar_tarjeta(bin_muestra,1)
-
+#print()
 #obtener diccionario
 #diccionario = num.dic_tarjetas
-
+#for e in diccionario:
+#	print(e,diccionario[e])
 #obtener un json para parsear
 #json = num.json()
 
 #obtener lista
 #lista = num.lista_tarjetas
+
+
+
+
+
+
