@@ -1,22 +1,23 @@
 #include <iostream>
-
+#include <cmath>
 #define BYTE 8
 #define NIBBLE 4
 
-int *decAbin(int numeroDecimal);//decimal a Binario
+void decAbin(int *binario, int numeroDecimal);//decimal a Binario
 int binAdec(int arrayBinario[]);//binario a Decimal
 
 using namespace std;
 int main(int argc, char *argv[])
 {
-	int *binario;	
+		
 	while(1)
 	{
 		int decimal;
 		cout << endl;
 		cout << "Introducir un numero para convertir:";
 		cin >> decimal;
-		binario = decAbin(decimal);
+		int binario[(int)pow(2, 8)];
+		decAbin(binario, decimal);
 		binAdec(binario);
 	}
 	return 0;
@@ -41,7 +42,7 @@ int binAdec(int arrayBinario[]){
 	return sumaFinal;
 }
 
-int *decAbin(int numeroDecimal){
+void decAbin(int *binario, int numeroDecimal){
 	if( numeroDecimal >= 256 )
 	{
 		cout << "1 byte soporta 8^8 combinaciones, es decir, solo 255 permutaciones!" << endl;
@@ -54,9 +55,7 @@ int *decAbin(int numeroDecimal){
 		cout << "Se divide el " << numeroDecimal << " 8 veces contando con el 0 ";
 		cout << "para completar el byte entero." << endl;
 	}
-	
-	int *binario;				 //Array donde se van a almacenar los numeros
-	binario = new int[1]; //se reserva 1 byte -> 8 bits
+	//*binario = new int[1]; //se reserva 1 byte -> 8 bits
 	int n = numeroDecimal;		 //Estado actual de la operacion
 	
 	int i;for(i=BYTE; i!= 0;i--){
@@ -86,5 +85,4 @@ int *decAbin(int numeroDecimal){
 	cout << "'"<< endl;
 	cout << "ese es  el numero en binario." <<endl;
 	
-	return binario;
 }
