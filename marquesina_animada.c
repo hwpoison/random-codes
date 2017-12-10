@@ -3,11 +3,13 @@
 #include <string.h>
 #include <unistd.h>//Contiene la funcion usleep()
 
+//Dimensiones Letrero
 #define T_ALTO 6
-#define T_ANCHO 60
+#define T_ANCHO 80
+//Dimensiones Letra
+#define L_ANCHO 10
+//Otros
 #define LED ' '//Caracter vacio por defecto
-#define L_ANCHO 10//ANCHO DE LA LETRA
-
 typedef struct cartel {
 	char tablero[T_ALTO][T_ANCHO];
 	int animando;//Estado de animacion
@@ -19,13 +21,13 @@ void setear(char tablero[][T_ANCHO]);//Setea el tablero
 void animar(panel *Letrero, float intervalo);//Anima el tablero en bucle
 int agregarLetra(panel *Letrero, char *letra[L_ANCHO]);//Agrega una letra (no detecta hasta cuantas)
 void ver(char tablero[][T_ANCHO]);//Visualiza el tablero sin borrar la pantalla
-void desplazarArray(char array[]);//Desplaza un array hacia la derecha en marquesina
-
+void desplazarArray(char array[]);//Desplaza el contenido del array hacia la derecha y
+								  //lo ultimo aparece en el principio
 
 int main(int argc, char *argv[]){
 
 	
-	char *letra1[10] = {
+	char *letra1[10] = { //Las letras tienen que ser proporcionales al letrero en altura
 		"H        H",
 		"H        H",
 		"hhhhhhhhhh",
@@ -96,11 +98,10 @@ int agregarLetra(panel *Letrero, char *letra[L_ANCHO]){
 }
 
 void setear(char tablero[][T_ANCHO]){
-	int x,y;
+	short x,y;
 	for(x=0; x<T_ALTO;  x++){
-		for(y=0; y<T_ANCHO-1; y++){
+		for(y=0; y<T_ANCHO-1; y++)
 			tablero[x][y] = LED;
-		}
 		tablero[x][y] = '\0';
 	}
 }
@@ -109,7 +110,7 @@ void desplazarArray(char array[]){
 	char tmp0 = array[1];
 	char tmp1;
 	array[1] = array[0];
-	int cnt;for(cnt=2; cnt<strlen(array); cnt++){
+	short cnt;for(cnt=2; cnt<strlen(array); cnt++){
 		tmp1  = array[cnt];
 		array[cnt] = tmp0;
 		tmp0 = tmp1;
@@ -119,19 +120,17 @@ void desplazarArray(char array[]){
 
 void animar(panel *Letrero, float intervalo){
 	Letrero->animando = 1;
+	short x;
 	while(Letrero->animando){
 		system("clear");
-		int x;
-		for(x=0;x < T_ALTO; x++){
+		for(x=0;x < T_ALTO; x++)
 			desplazarArray(Letrero->tablero[x]);
-		}
 		ver(Letrero->tablero);
 		usleep(intervalo*100000);
 	}
 }
 
 void ver(char tablero[][T_ANCHO]){
-	int x;
-	for(x=0; x<T_ALTO; x++)
+	short x;for(x=0; x<T_ALTO; x++)
 		printf("%s\n", tablero[x]);
 }
