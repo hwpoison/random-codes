@@ -57,6 +57,14 @@ int main(int argc, char *argv[]){
 		"A        A",
 		"A        A"
 	};
+	char *letra5[10] = {
+		"| |       ",
+		"| |       ",
+		"| |       ",
+		"| |       ",
+		"          ",
+		" O        "
+	};
 	
 	//Inicializacion
 	panel Letrero;
@@ -68,6 +76,7 @@ int main(int argc, char *argv[]){
 	agregarLetra(&Letrero, letra2);
 	agregarLetra(&Letrero, letra3);
 	agregarLetra(&Letrero, letra4);
+	agregarLetra(&Letrero, letra5);
 	//Comienza la animacion
 	animar(&Letrero, 0.1);
 	return 0;
