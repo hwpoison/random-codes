@@ -85,4 +85,4 @@ int main(int argc, char **argv)
 		  printf("\n\nEl numero que elegiste es el %d ! :*)", numeros[(CANT_NUMEROS/2)]);
 		}
 		return 0;
-}1.
+}
