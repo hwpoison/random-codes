@@ -19,7 +19,7 @@ void mostrarNumeros(int numeros[])
 }
 
 void conteoAnimado(int numeros[], int pos){
-		char *msjNo[6] = {"Mm nop", "No creo ", "Este no", "Ni cerca","Mm na","Nou"};
+		char msjNo[6][10] = {"Mm nop", "No creo ", "Este no", "Ni cerca","Mm na","Nou"};
 		int sec = 0;
 		int cnt = pos-5;
 		time_t timet;
