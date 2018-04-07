@@ -79,10 +79,10 @@ int main(int argc, char **argv)
 		printf("A ver cual sera..\n");
 		if(CANT_NUMEROS%2==0){
 			conteoAnimado(numeros,CANT_NUMEROS/2+1);
-			printf("\n\nEl numero que elegiste es el %d ! :*)", numeros[(CANT_NUMEROS/2)+1]);
+			printf("\n\nEl numero que elegiste es el %d ! :*)\n", numeros[(CANT_NUMEROS/2)+1]);
 		}else{
 	   conteoAnimado(numeros,CANT_NUMEROS/2);
-		  printf("\n\nEl numero que elegiste es el %d ! :*)", numeros[(CANT_NUMEROS/2)]);
+		  printf("\n\nEl numero que elegiste es el %d ! :*)\n", numeros[(CANT_NUMEROS/2)]);
 		}
 		return 0;
 }
