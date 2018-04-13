@@ -88,9 +88,8 @@ void jugar(){
 void borrarPantalla(){
 	if(__WIN32)
 		system("cls");
-	else{
+	else
 		system("clear");
-	}
 };
 
 int main(int argc, char **argv)
