@@ -40,44 +40,40 @@ void conteoAnimado(int numeros[], int pos){
 		}
 	}
 }
-int main(int argc, char **argv)
-{
-	srand(time(NULL));
-	if(CANT_NUMEROS%ANCHO != 0){
-		printf("ERROR:La cantidad de numeros debe ser divisible por el ancho!");
-		exit(1);
+void reacomodarNumeros(int columna, int numeros[], int numTmp[]){
+	 //Se centra la columna elegida por el usuario
+	int i, c , count , tmp = 0;
+	for(i=0; i<ALTURA; i++){
+		tmp = numeros[(ANCHO/2)+(ANCHO*i)];
+		numeros[(ANCHO/2)+(ANCHO*i)] = numeros[(columna-1)+(ANCHO*i)];
+		numeros[(columna-1)+(ANCHO*i)] = tmp;
 	}
+							
+	//Se baraja de izq a der horizontalmente por fila
+	count = 0;
+	for(c=0;c<ANCHO;c++){
+		for(i=0; i<ALTURA; i++)
+			numTmp[count++] = numeros[c+(ANCHO*i)];
+	}
+	for(i=0; i<CANT_NUMEROS;i++)
+		numeros[i] = numTmp[i];
+}
+
+void jugar(){
+	printf("Hola! Piensa un numero y dime en que columna esta. (1,2 o 3) Intentare leerte la mente!!\n");
+	int columna, i, rondaActual = 0;
 	int numeros[CANT_NUMEROS] = {0};
 	int numTmp[CANT_NUMEROS];
-	int i, c, count, tmp, columna, rondaActual = 0;
 	//Se centra la columna elegida
 	for(i=0; i < CANT_NUMEROS; i++)
 		numeros[i] = i+1;
 	//Comienza el juego
-	printf("Hola! Piensa un numero y dime en que columna esta. (1,2 o 3) Intentare leerte la mente!!\n");
 	while(rondaActual <= 2){
 		mostrarNumeros(numeros);
 		rondaActual++>0? printf("En que columna esta ahora?:") : printf("En que columna esta?:");
 		scanf("%d", &columna);
-								
-		 //Se centra la columna elegida por el usuario
-		for(i=0; i<ALTURA; i++){
-			tmp = numeros[(ANCHO/2)+(ANCHO*i)];
-			numeros[(ANCHO/2)+(ANCHO*i)] = numeros[(columna-1)+(ANCHO*i)];
-			numeros[(columna-1)+(ANCHO*i)] = tmp;
-		}
-								
-		//Se baraja de izq a der horizontalmente por fila
-		count = 0;
-		for(c=0;c<ANCHO;c++){
-			for(i=0; i<ALTURA; i++)
-				numTmp[count++] = numeros[c+(ANCHO*i)];
-		}
-		for(i=0; i<CANT_NUMEROS;i++)
-			numeros[i] = numTmp[i];
-			
+		reacomodarNumeros(columna, numeros, numTmp);
 	};
-		
 	//Se lanza el numero "adivinado"
 	printf("A ver cual sera..\n");
 	if(CANT_NUMEROS%2==0){
@@ -87,5 +83,31 @@ int main(int argc, char **argv)
 		conteoAnimado(numeros,CANT_NUMEROS/2);
 		printf("\n\nEl numero que elegiste es el %d ! :*)\n", numeros[(CANT_NUMEROS/2)]);
 	}
+}
+
+void borrarPantalla(){
+	if(__WIN32)
+		system("cls");
+	else{
+		system("clear");
+	}
+};
+
+int main(int argc, char **argv)
+{
+	srand(time(NULL));
+	if(CANT_NUMEROS%ANCHO != 0){
+		printf("ERROR:La cantidad de numeros debe ser divisible por el ancho!");
+		exit(1);
+	}
+	char decision;
+	while(1){
+		jugar();
+		printf("\nJugar de nuevo? s/n:");
+		scanf(" %c", &decision);
+		if(decision != 's')
+			exit(1);
+		borrarPantalla();
+	};
 	return 0;
 }
