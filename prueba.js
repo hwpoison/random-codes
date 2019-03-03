@@ -1,1 +1,1 @@
-console.log("XSS TEST");
+javascript:console.log("XSS TEST");
