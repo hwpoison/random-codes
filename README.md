@@ -1,2 +1,2 @@
-# Codigos-sueltos
-Codigos que voy acumulando
+# Random codes
+just that.
